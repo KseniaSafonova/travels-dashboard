@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTravel</title>
+    <link rel="stylesheet" href="assets/styles/normalize.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/index.js"></script>
+
+</head>
+
+<body>
+    <main class="index">
+        <section id="welcome">
+            <div class="welcome-card">
+                <div class="welcome-card__header"></div>
+                <div class="welcome-card__picture">
+                    <img src="assets/images/around.svg" style="height: 150px;">
+                </div>
+            </div>
+        </section>
+        <section id="personal">
+            <div class="user-account">
+                <div class="user-account__login"></div>
+                <div class="user-account__avatar">
+                </div>
+            </div>
+            <div class="user-statistic">
+            </div>
+            <div class="user-card__quote">
+                <div class="user-card__quote-text"></div>
+                <div class="user-card__quote-author"></div>
+            </div>
+        </section>
+        <section id="addJourney">
+            <img src="assets/images/journey.svg" width="10%" style="float: left;">
+            <button id="addButton" onclick="openAddJourneyForm();">Add Your Journey</button>
+            <div class=" popup">
+                <div class="popup_container">
+                    <div id="blabla">
+                        <form role="form" autocomplete="on">
+                            <label>Travel Date</label>
+                            <input id="dateTravel" type="date" name="dateReq">
+                            <p><label>Country</label>
+                                <input id="countryTravel" type="text" name="nameReq">
+                            </p>
+                            <p><label>City</label>
+                                <input id="cityTravel" type="text" name="cityReq">
+                            </p>
+                            <p><label>Impression</label>
+                                <textarea id="impressionTravel" name="impressionsReq"></textarea>
+                            </p>
+                            <label>Photo</label>
+                            <input type="text" id="photoTravel" name="photoReq">
+                            <button type="button" class="btn btn-success" onclick="sendJourney();">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="statistics">
+            <h2>Travel statistics</h2>
+            <canvas id="myStatistics"></canvas>
+        </section>
+        <section id="list">
+            <h2>Travel list:</h2>
+            <div id="trips"></div>
+        </section>
+    </main>
+</body>
+
+</html>

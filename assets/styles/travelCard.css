@@ -1,0 +1,135 @@
+.cardContainer__modalWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .2);
+    display: flex;
+}
+
+.cardContainer__modal {
+    width: 60vw;
+    height: 80vh;
+    background: radial-gradient(circle, rgba(232, 232, 244, 1) 1%, rgb(173, 250, 179) 42%, rgb(203, 248, 245) 100%);
+    margin: 3em;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    position: relative;
+    padding: 2em;
+    overflow: auto;
+    font-weight: 600;
+}
+
+.cardContainer__modal label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 200%;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+#openclose,
+.cardContainer__modalWrapper {
+    display: none;
+}
+
+#openclose:checked~.cardContainer__modalWrapper {
+    display: flex;
+}
+
+
+.cardContainer__modal-money {
+    padding: 15px;
+}
+
+.cardContainer__modal-userPhoto {
+    height: 14em;
+    width: 16em;
+    padding: 5px;
+}
+
+.cardContainer__modal-photo {
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (min-width: 320px) {
+    .cardContainer__modal-userPhoto {
+        height: 8em;
+        width: 10em;    
+    }
+  }
+  
+@media screen and (min-width: 375px) {
+    .cardContainer__modal-userPhoto {
+        height: 10em;
+        width: 12em;    
+    }
+}
+@media screen and (min-width: 768px) {
+    .cardContainer__modal-userPhoto {
+        height: 12em;
+        width: 14em;    
+    }
+}
+@media screen and (min-width: 1024px) {
+    .cardContainer__modal-userPhoto {
+        height: 14em;
+        width: 16em;    
+    }
+}
+#map {
+    height: 45vh;
+    width: 60vw;
+}
+
+  /*Повтор стилей со страницы Start*/
+body {
+    padding-top: 1vw;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+label {
+    display: block;
+    font-weight: 100;
+    margin-bottom: 1vw;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.btn {
+    padding: 0.5vw 1vw;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgba(203, 248, 245, 1);
+}
+
+.btn,
+input {
+    background-color: rgba(203, 248, 245, 0.5);
+    border: none;
+}
+
+input {
+    border-radius: 40px;
+    height: 1.2em;
+    padding: 0.5vw 1vw;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid green;
+}
+
+p {
+    color: #11413d;
+}

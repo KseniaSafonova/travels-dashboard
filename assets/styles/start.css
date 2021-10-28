@@ -1,0 +1,55 @@
+.main {
+    padding-top: 1vw;
+    text-align: center;
+    font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+input {
+    border-radius: 40px;
+    height: 1.2em;
+    padding: 0.5vw 1vw;
+}
+
+h1, h2 {
+    color:#11413d;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid green;
+}
+
+label {
+    display: block;
+    font-weight: 100;
+    margin-bottom: 1vw;
+    font-size: 1.2rem;
+}
+
+.btn, input {
+    background-color: rgba(203, 248, 245, 0.5);
+    border: none;
+}
+
+.btn {
+    padding: 1vw 3vw;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgba(203, 248, 245, 1);
+}
+
+#avatarInput {
+    padding: 5px;
+}
+
+

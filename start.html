@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/normalize.css">
+    <link rel="stylesheet" href="assets/styles/start.css">
+    <script src="assets/js/start.js"></script>
+    <title>Welcome</title>
+</head>
+
+<body>
+    <main class="main">
+        <h1>Welcome to the MyTravel!</h1>
+        <section class="signIn">
+            <h2>Sign In</h2>
+                <p id="emailBlock">
+                    <label for="signIn__form__email">E-mail:*</label>
+                    <input type="email" name="signIn__form__email" id="emailInput" onchange="validateEmail(this);" required placeholder="example@gmail.com">
+                </p>
+                <p>
+                    <label for="signIn__form__password" >Password:*</label>
+                    <input type="password" name="signIn__form__password" onchange="validatePass(this);" id="passInput"required>
+                </p>
+                <button class="btn" id="signIn__btn">Sign In</button>
+                <div id="systemMsg"></div>
+        </section>
+        <section class="signUp">
+            <h2>Sign Up</h2>
+                <div id="accountInfo">
+                    <p>
+                        <label for="signUp__form__email">E-mail:*</label>
+                        <input type="email" name="signUp__form__email" id="signUp__form__email" onchange="validateEmail(this);" required placeholder="example@gmail.com">
+                    </p>
+                    <p>
+                        <label for="signUp__form__email">Password:*</label>
+                        <input type="password" name="signUp__form__password" id="signUp__form__password" onchange="validatePass(this);" required>
+                    </p>
+                    <p >
+                        <label for="signUp__form__confirm">Confirm password:*</label>
+                        <input type="password" name="signUp__form__confirm" onchange="checkPass(this);" required>
+                    </p>
+                    <p id="passInfo"></p>
+                </div>
+                <div id="personalInfo">
+                    <p>
+                        <label for="firstName">First Name:*</label>
+                        <input required placeholder="Name" type="text" name="firstName" id="firstName">
+                    </p>
+                    <p>
+                        <label for="lastName">Last Name:*</label>
+                        <input required placeholder="Surname" type="text" name="lastName" id="lastName">
+                    </p>
+                    <p>
+                        <label for="avatar">Avatar:*</label>
+                        <!-- <input type="file" id="avatarInput" name="avatar" onchange="previewFile();">  -->
+                        <input type="text" onchange="showPreview();" id="urlInput">
+                        <p>
+                            <img src="" height="200" id="avatarPreview" alt="Image preview...">
+                        </p>
+                    </p>
+                </div>
+                <button class="btn" id="signUp__btn">Sign Up</button>
+        </section>
+    </main>
+</body>
+
+</html>
