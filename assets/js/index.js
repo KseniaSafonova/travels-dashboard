@@ -1,6 +1,7 @@
 
 let Trips = [];
 let Dates = [];
+let Cities = [];
 let Years = [];
 let Objects = [];
 let yearsData = [];
@@ -38,12 +39,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let restoredTrips = JSON.parse(localStorage.getItem("Trips"));
     let restoredDates = localStorage.getItem("Dates");
+    //let restoredCities = JSON.parse(localStorage.getItem("Cities"));
     let restoredObjects = JSON.parse(localStorage.getItem("Objects"));
+
+
+    // if ((restoredCities != null) && (restoredCities.length != 0)) {
+    //     for (i = 0; i < restoredCities.length; i++) {
+    //         Cities.push(restoredCities[i]);
+    //     }
 
     if ((restoredTrips != null) && (restoredTrips.length != 0)) {
         for (i = 0; i < restoredTrips.length; i++) {
             Trips.push(restoredTrips[i]);
         }
+
 
         for (let trip of restoredTrips) {
             document.getElementById("trips").innerHTML +=
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 <div class="tripSection">${trip.date}</div>
                 <div class="tripSection">${trip.country}</div>
                 <div class="tripSection">${trip.city}</div>
-                <a href="travelCard.html"><div class="tripSection">>>travelCard</div></a>
+                <a href="travelCard.html"><div class="tripSection" onclick="openDetails()">>>details</div></a>
                 <button class="deleteTrip" onclick="deleteTrip('${trip.id}');">delete</button>
                 </div>`
         }
@@ -103,6 +112,10 @@ function setStorageDates(Dates) {
     localStorage.setItem("Dates", Dates);
 }
 
+function setStorageCities(Cities) {
+    localStorage.setItem("Cities", JSON.stringify(Cities));
+}
+
 function setStorageYears(Years) {
     localStorage.setItem("Years", Years);
 }
@@ -151,18 +164,27 @@ function sendJourney() {
             <div class="tripSection">${trip.country}</div>
             <div class="tripSection">${trip.city}</div>
             <a href="travelCard.html">
-            <div class="tripSection">>>travelCard</div>
+            <div class="tripSection" onclick="openDetails()">>>details</div>
             </a>
             <button class="deleteTrip" onclick="deleteTrip('${trip.id}');">delete</button>
             </div>`
         setStorageTrips(Trips);
         sendDate();
+        saveCities();
     }
     window.location.reload();
     sendStatistics()
 }
 
+function openDetails() {
+    window.addEventListener('click', event => {
+        let id = event.target.dataset.id;
+        console.log(id);
+    })
+}
+
 function deleteTrip(id) {
+
     console.log(1);
     let tripIndex = Trips.findIndex(t => t.id === id);
     if (tripIndex > -1) {
@@ -193,6 +215,22 @@ function sendDate() {
 
         Objects.push(numberTrips);
         setStorageObjects(Objects);
+    }
+}
+
+function saveCities() {
+    let city = {
+        id: (Math.random() * (1000 - 0) + 0).toFixed(3),
+        city: document.getElementById("cityTravel").value,
+    }
+
+    if (city == "") {
+        return;
+    }
+
+    else {
+        Cities.push(city);
+        setStorageCities(Cities);
     }
 }
 
