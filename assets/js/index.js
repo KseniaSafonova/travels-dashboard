@@ -129,6 +129,10 @@ function openAddJourneyForm() {
     popup.classList.add('popup_open');
 }
 
+function closeForm() {
+    window.location.reload();
+}
+
 function sendJourney() {
     let trip = {
         id: (Math.random() * (1000 - 0) + 0).toFixed(3),
@@ -159,8 +163,6 @@ function sendJourney() {
 }
 
 function deleteTrip(id) {
-    //window.addEventListener('click', event => {
-    //    let id = event.target.dataset.id;
     console.log(1);
     let tripIndex = Trips.findIndex(t => t.id === id);
     if (tripIndex > -1) {
@@ -168,9 +170,7 @@ function deleteTrip(id) {
     }
     setStorageTrips(Trips);
     window.location.reload();
-}
-//)
-;
+};
 
 
 function sendDate() {

@@ -1,4 +1,4 @@
-.cardContainer__modalWrapper {
+/* .cardContainer__modalWrapper {
     position: fixed;
     left: 0;
     top: 0;
@@ -56,7 +56,8 @@
 .cardContainer__modal-photo {
     display: flex;
     flex-wrap: wrap;
-}
+} */
+
 @media screen and (min-width: 320px) {
     .cardContainer__modal-userPhoto {
         height: 8em;
@@ -117,6 +118,11 @@ label {
 input {
     background-color: rgba(203, 248, 245, 0.5);
     border: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 input {

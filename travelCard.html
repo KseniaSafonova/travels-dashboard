@@ -10,43 +10,23 @@
     <link rel="stylesheet" href="assets/styles/normalize.css">
     <link rel="stylesheet" href="assets/styles/start.css">
     <link rel="stylesheet" href="assets/styles/travelCard.css">
-    <title>Welcome</title>
+    <title>Travel Card</title>
 </head>
 
 <body>
-    <section><span>Journey 1</span>
-        <button class="btn">
-            <label for="openclose" id="label">More...</label>
-        </button>
-    </section>
 
+    <section><button class="btn"><a href="index.html">Back</a></button></section>
     <section class="cardContainer">
-        <input type="checkbox" class="cardContainer__checkbox" id="openclose">
         <div class="cardContainer__modalWrapper">
             <div class="cardContainer__modal">
-                <label for="openclose" class="cardContainer__modal-label">&times;</label>
-                <p class="cardContainer__modal-cityList">Visited cities:
+                <p class="cardContainer__modal-cityList" id="visitedCities">Visited cities:
                 </p>
                 <p class="cardContainer__modal-places">The best places:</p>
                 <div class="cardContainer__modal-photo">
-                    <img class="cardContainer__modal-userPhoto"
-                        src="https://uiaa-web.azureedge.net/wp-content/uploads/2021/01/Dolomites-stock-UIAA.jpg"
-                        alt="example1">
-                    <img class="cardContainer__modal-userPhoto"
-                        src="https://uiaa-web.azureedge.net/wp-content/uploads/2021/01/Dolomites-stock-UIAA.jpg"
-                        alt="example2">
-                    <img class="cardContainer__modal-userPhoto"
-                        src="https://uiaa-web.azureedge.net/wp-content/uploads/2021/01/Dolomites-stock-UIAA.jpg"
-                        alt="example3">
-                    <img class="cardContainer__modal-userPhoto"
-                        src="https://uiaa-web.azureedge.net/wp-content/uploads/2021/01/Dolomites-stock-UIAA.jpg"
-                        alt="example4">
-                    <img class="cardContainer__modal-userPhoto"
-                        src="https://uiaa-web.azureedge.net/wp-content/uploads/2021/01/Dolomites-stock-UIAA.jpg"
-                        alt="example5">
+                    <img class="cardContainer__modal-userPhoto" src="assets/images/no-image.jpg" alt="example1">
+                    <img class="cardContainer__modal-userPhoto" src="assets/images/no-image.jpg" alt="example1">
+                    <img class="cardContainer__modal-userPhoto" src="assets/images/no-image.jpg" alt="example1">
                 </div>
-                <p id="cardContainer__modal-money">Spent money/Walked steps????:
-                </p>
                 <p class="cardContainer__modal-map">My route:</p>
                 <div id="map"></div>
                 <button onclick="resetRoute()" class="btn">Reset route</button>

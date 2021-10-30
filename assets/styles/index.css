@@ -19,7 +19,6 @@ section {
 #welcome {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    /*background-color: rgba(203, 248, 245, 0.3);*/
 }
 
 #personal {

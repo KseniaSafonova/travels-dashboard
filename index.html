@@ -39,15 +39,12 @@
         <section id="addJourney">
             <img src="assets/images/journey.svg" width="10%" style="float: left;">
             <button id="addButton" onclick="openAddJourneyForm();">Add Your Journey</button>
-            <div class=" popup">
+            <div class="popup">
                 <div class="popup_container">
                     <div id="blabla">
                         <form role="form" autocomplete="on">
                             <label>Travel Date</label>
                             <input id="dateTravel" type="date" name="dateReq">
-                            <!-- <p><label>Start country</label>
-                                <input id="countryTravel" type="text" name="nameReq">
-                            </p> -->
                             <p><label>Start country</label>
                                 <select id="countryTravel" type="text" name="nameReq">
                                     <option>Austria</option>
@@ -97,15 +94,18 @@
                                         <option>Estonia</option>
                                 </select>
                             </p>
-                            <p><label>Start city</label>
+                            <p><label>Cities</label>
                                 <input id="cityTravel" type="text" name="cityReq">
                             </p>
                             <p><label>Impression</label>
                                 <textarea id="impressionTravel" name="impressionsReq"></textarea>
                             </p>
-                            <label>Photo</label>
-                            <input type="text" id="photoTravel" name="photoReq">
+                            <label>Photo: </label>
+                            <p><input type="file" id="photoTravel1" name="photoReq"></p>
+                            <p><input type="file" id="photoTravel2" name="photoReq"></p>
+                            <p><input type="file" id="photoTravel3" name="photoReq"></p>
                             <button type="button" class="btn btn-success" onclick="sendJourney();">Send</button>
+                            <button type="button" class="btn btn-success" onclick="closeForm()">Close</button>
                         </form>
                     </div>
                 </div>
