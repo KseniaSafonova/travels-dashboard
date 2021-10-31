@@ -124,6 +124,10 @@ function setStorageObjects(Objects) {
     localStorage.setItem("Objects", JSON.stringify(Objects));
 }
 
+// function setStorageCities(Cities) {
+//     localStorage.setItem("Cities", JSON.stringify(Cities));
+// }
+
 function lastTravelDate(Trips) {
     let lastTravelDate = new Date('1900-01-01T00:00:00');
     for (i = 0; i < Trips.length; i++) {
@@ -195,6 +199,12 @@ function deleteTrip(id) {
 };
 
 
+// let yearIndex = Years.findIndex(y => y.id === id);
+// if (yearIndex > -1) {
+//     Years.splice(yearIndex, 1);
+// }
+
+
 function sendDate() {
     let dateData = document.getElementById("dateTravel").value;
 
@@ -233,6 +243,17 @@ function saveCities() {
         setStorageCities(Cities);
     }
 }
+
+
+// function openDetails() {
+
+//     document.getElementById('visitedCities').innerHTML += ;
+
+//         window.addEventListener('click', event => {
+//             let id = event.target.dataset.id;
+//         })
+
+// }
 
 function sendStatistics() {
 

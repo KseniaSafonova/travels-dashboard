@@ -45,7 +45,7 @@
 
 .cardContainer__modal-money {
     padding: 15px;
-}
+}*/
 
 .cardContainer__modal-userPhoto {
     height: 14em;
@@ -56,7 +56,7 @@
 .cardContainer__modal-photo {
     display: flex;
     flex-wrap: wrap;
-} */
+} 
 
 @media screen and (min-width: 320px) {
     .cardContainer__modal-userPhoto {
