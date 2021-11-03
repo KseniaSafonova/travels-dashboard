@@ -1,7 +1,6 @@
 
 let Trips = [];
 let Dates = [];
-let Cities = [];
 let Years = [];
 let Objects = [];
 let yearsData = [];
@@ -39,20 +38,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let restoredTrips = JSON.parse(localStorage.getItem("Trips"));
     let restoredDates = localStorage.getItem("Dates");
-    //let restoredCities = JSON.parse(localStorage.getItem("Cities"));
     let restoredObjects = JSON.parse(localStorage.getItem("Objects"));
-
-
-    // if ((restoredCities != null) && (restoredCities.length != 0)) {
-    //     for (i = 0; i < restoredCities.length; i++) {
-    //         Cities.push(restoredCities[i]);
-    //     }
 
     if ((restoredTrips != null) && (restoredTrips.length != 0)) {
         for (i = 0; i < restoredTrips.length; i++) {
             Trips.push(restoredTrips[i]);
         }
-
 
         for (let trip of restoredTrips) {
             document.getElementById("trips").innerHTML +=
@@ -124,10 +115,6 @@ function setStorageObjects(Objects) {
     localStorage.setItem("Objects", JSON.stringify(Objects));
 }
 
-// function setStorageCities(Cities) {
-//     localStorage.setItem("Cities", JSON.stringify(Cities));
-// }
-
 function lastTravelDate(Trips) {
     let lastTravelDate = new Date('1900-01-01T00:00:00');
     for (i = 0; i < Trips.length; i++) {
@@ -174,7 +161,6 @@ function sendJourney() {
             </div>`
         setStorageTrips(Trips);
         sendDate();
-        saveCities();
     }
     window.location.reload();
     sendStatistics()
@@ -189,21 +175,34 @@ function openDetails() {
 
 function deleteTrip(id) {
 
-    console.log(1);
     let tripIndex = Trips.findIndex(t => t.id === id);
     if (tripIndex > -1) {
         Trips.splice(tripIndex, 1);
     }
     setStorageTrips(Trips);
+
+    let restoredDates = localStorage.getItem("Dates");
+
+    if (restoredDates != null) {
+        Dates = restoredDates.split(",");
+    }
+
+    let dateIndex = Dates.findIndex(d => d.id === id);
+    if (dateIndex > -2) {
+        Dates.splice(dateIndex, 1);
+    }
+
+    setStorageDates();
+
+    Dates.forEach(element => Years.unshift(element.slice(0, 4)));
+    setStorageYears(Years);
+
+    Objects = Years.map(year => ({ 'year': year }))
+    setStorageObjects(Objects);
+
+    sendStatistics();
     window.location.reload();
 };
-
-
-// let yearIndex = Years.findIndex(y => y.id === id);
-// if (yearIndex > -1) {
-//     Years.splice(yearIndex, 1);
-// }
-
 
 function sendDate() {
     let dateData = document.getElementById("dateTravel").value;
@@ -219,31 +218,10 @@ function sendDate() {
         Dates.forEach(element => Years.unshift(element.slice(0, 4)));
         setStorageYears(Years);
 
-        let numberTrips = {
-            year: Years[0]
-        }
-
-        Objects.push(numberTrips);
+        Objects = Years.map(year => ({ 'year': year }))
         setStorageObjects(Objects);
     }
 }
-
-function saveCities() {
-    let city = {
-        id: (Math.random() * (1000 - 0) + 0).toFixed(3),
-        city: document.getElementById("cityTravel").value,
-    }
-
-    if (city == "") {
-        return;
-    }
-
-    else {
-        Cities.push(city);
-        setStorageCities(Cities);
-    }
-}
-
 
 // function openDetails() {
 
