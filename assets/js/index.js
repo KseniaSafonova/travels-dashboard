@@ -194,7 +194,7 @@ function deleteTrip(id) {
 
     setStorageDates();
 
-    Dates.forEach(element => Years.unshift(element.slice(0, 4)));
+    Dates.forEach(element => Years.push(element.slice(0, 4)));
     setStorageYears(Years);
 
     Objects = Years.map(year => ({ 'year': year }))
@@ -215,7 +215,7 @@ function sendDate() {
         Dates.push(dateData);
         setStorageDates(Dates);
 
-        Dates.forEach(element => Years.unshift(element.slice(0, 4)));
+        Dates.forEach(element => Years.push(element.slice(0, 4)));
         setStorageYears(Years);
 
         Objects = Years.map(year => ({ 'year': year }))
