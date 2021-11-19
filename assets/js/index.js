@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     let restoredTrips = JSON.parse(localStorage.getItem("Trips"));
-    let restoredDates = localStorage.getItem("Dates");
+    let restoredDates = JSON.parse(localStorage.getItem("Dates"));
     let restoredObjects = JSON.parse(localStorage.getItem("Objects"));
 
     if ((restoredTrips != null) && (restoredTrips.length != 0)) {
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 </div>`
         }
 
-        if (restoredDates != null) {
-            Dates = restoredDates.split(",");
+        for (i = 0; i < restoredDates.length; i++) {
+            Dates.push(restoredDates[i]);
         }
 
         for (i = 0; i < restoredObjects.length; i++) {
@@ -100,7 +100,7 @@ function setStorageTrips(Trips) {
 }
 
 function setStorageDates(Dates) {
-    localStorage.setItem("Dates", Dates);
+    localStorage.setItem("Dates", JSON.stringify(Dates));
 }
 
 function setStorageCities(Cities) {
@@ -144,6 +144,20 @@ function sendJourney() {
         country: document.getElementById("countryTravel").value,
         city: document.getElementById("cityTravel").value,
     }
+
+    let dateData = {
+        id: trip.id,
+        date: document.getElementById("dateTravel").value
+    }
+
+    if (dateData == "") {
+        return;
+    }
+    else {
+        Dates.push(dateData);
+        setStorageDates(Dates);
+    }
+
     if (trip.date == "" || trip.country == "" || trip.city == "") {
         document.getElementById("trips").innerHTML += `<div class="error">You have not completed your travel information!</div>`;
     }
@@ -174,54 +188,36 @@ function openDetails() {
 }
 
 function deleteTrip(id) {
+    console.log(Dates)
+
+    let dateIndex = Dates.findIndex(d => d.id === id);
+    if (dateIndex > -1) {
+        Dates.splice(dateIndex, 1);
+    }
 
     let tripIndex = Trips.findIndex(t => t.id === id);
     if (tripIndex > -1) {
         Trips.splice(tripIndex, 1);
     }
+
     setStorageTrips(Trips);
-
-    let restoredDates = localStorage.getItem("Dates");
-
-    if (restoredDates != null) {
-        Dates = restoredDates.split(",");
-    }
-
-    let dateIndex = Dates.findIndex(d => d.id === id);
-    if (dateIndex > -2) {
-        Dates.splice(dateIndex, 1);
-    }
-
-    setStorageDates();
-
-    Dates.forEach(element => Years.push(element.slice(0, 4)));
-    setStorageYears(Years);
-
-    Objects = Years.map(year => ({ 'year': year }))
-    setStorageObjects(Objects);
+    setStorageDates(Dates);
+    sendDate();
 
     sendStatistics();
     window.location.reload();
 };
 
 function sendDate() {
-    let dateData = document.getElementById("dateTravel").value;
+    let onlyDates = Dates.map(element => element.date);
 
-    if (dateData == "") {
-        return;
-    }
+    onlyDates.map(element => Years.push(element.slice(0, 4)));
+    setStorageYears(Years);
 
-    else {
-        Dates.push(dateData);
-        setStorageDates(Dates);
-
-        Dates.forEach(element => Years.push(element.slice(0, 4)));
-        setStorageYears(Years);
-
-        Objects = Years.map(year => ({ 'year': year }))
-        setStorageObjects(Objects);
-    }
+    Objects = Years.map(year => ({ 'year': year }))
+    setStorageObjects(Objects);
 }
+//}
 
 // function openDetails() {
 
