@@ -36,14 +36,15 @@ section {
 }
 
 #addButton {
-    height: 50px; 
-    width: 70%; 
-    margin-left: 50px; 
-    border-radius: 15px; 
+    height: 50px;
+    width: 70%;
+    margin-left: 50px;
+    border-radius: 15px;
     margin-top: 20px;
     font-weight: bolder;
     background-color: rgba(203, 248, 245, 0.5);
 }
+
 #modal_close {
     margin-left: 450px;
     margin-top: 20px;
@@ -60,9 +61,11 @@ section {
     border: 1px solid black;
     border-radius: 10px;
 }
+
 #blabla.open {
     display: block;
 }
+
 .popup {
     position: fixed;
     width: 100%;
@@ -73,9 +76,11 @@ section {
     transition: all 0.5s ease;
     display: none;
 }
+
 .popup_open {
     display: block;
 }
+
 .popup_container {
     position: absolute;
     top: 50%;
@@ -86,13 +91,16 @@ section {
     max-width: 588px;
     width: 100%;
 }
+
 .popup_wrapper {
     padding: 40px;
 }
+
 @keyframes fadeIn {
     from {
         fill-opacity: o;
     }
+
     to {
         opacity: 1;
     }
@@ -193,8 +201,8 @@ section {
 }
 
 .welcome-card__picture {
-    float: right; 
-    width: 200px; 
+    float: right;
+    width: 200px;
     margin-right: 50px;
 }
 
@@ -213,17 +221,17 @@ section {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
     }
-    
+
     #personal {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
     }
-    
+
     #addJourney {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
         border: 2px solid #11413d;
-}
+    }
 
     #list {
         grid-column: 1 / 2;

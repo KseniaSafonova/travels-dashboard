@@ -1,6 +1,7 @@
 
 let Trips = [];
 let Dates = [];
+let Cities = [];
 let Years = [];
 let Objects = [];
 let yearsData = [];
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let restoredTrips = JSON.parse(localStorage.getItem("Trips"));
     let restoredDates = JSON.parse(localStorage.getItem("Dates"));
+    let restoredCities = JSON.parse(localStorage.getItem("Cities"));
     let restoredObjects = JSON.parse(localStorage.getItem("Objects"));
 
     if ((restoredTrips != null) && (restoredTrips.length != 0)) {
@@ -59,6 +61,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         for (i = 0; i < restoredDates.length; i++) {
             Dates.push(restoredDates[i]);
         }
+
+        for (i = 0; i < restoredCities.length; i++) {
+            Cities.push(restoredCities[i]);
+        }
+
 
         for (i = 0; i < restoredObjects.length; i++) {
             Objects.push(restoredObjects[i]);
@@ -150,12 +157,26 @@ function sendJourney() {
         date: document.getElementById("dateTravel").value
     }
 
+    let cityData = {
+        id: trip.id,
+        city: document.getElementById("cityTravel").value
+    }
+
     if (dateData == "") {
         return;
     }
     else {
         Dates.push(dateData);
         setStorageDates(Dates);
+    }
+
+    if (cityData == "") {
+        return;
+    }
+
+    else {
+        Cities.push(cityData);
+        setStorageCities(Cities);
     }
 
     if (trip.date == "" || trip.country == "" || trip.city == "") {
@@ -180,19 +201,22 @@ function sendJourney() {
     sendStatistics()
 }
 
-function openDetails() {
-    window.addEventListener('click', event => {
-        let id = event.target.dataset.id;
-        console.log(id);
-    })
+function openDetails(id) {
+    let tripIndex = Trips.findIndex(t => t.id === id);
+    if (tripIndex > -1) {
+        console.log(tripIndex);
+    }
 }
 
 function deleteTrip(id) {
-    console.log(Dates)
-
     let dateIndex = Dates.findIndex(d => d.id === id);
     if (dateIndex > -1) {
         Dates.splice(dateIndex, 1);
+    }
+
+    let cityIndex = Cities.findIndex(d => d.id === id);
+    if (cityIndex > -1) {
+        Cities.splice(cityIndex, 1);
     }
 
     let tripIndex = Trips.findIndex(t => t.id === id);
@@ -202,6 +226,7 @@ function deleteTrip(id) {
 
     setStorageTrips(Trips);
     setStorageDates(Dates);
+    setStorageCities(Cities);
     sendDate();
 
     sendStatistics();
