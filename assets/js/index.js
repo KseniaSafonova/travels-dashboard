@@ -212,21 +212,7 @@ function openDetails() {
             console.log(event.target.id);
         })
     })
-
-
 }
-
-//}
-
-// function openDetails() {
-
-//     document.getElementById('visitedCities').innerHTML += ;
-
-//         window.addEventListener('click', event => {
-//             let id = event.target.dataset.id;
-//         })
-
-// }
 
 function deleteTrip(id) {
     let dateIndex = Dates.findIndex(d => d.id === id);
