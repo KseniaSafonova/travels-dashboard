@@ -208,6 +208,18 @@ function openDetails(id) {
     }
 }
 
+//}
+
+// function openDetails() {
+
+//     document.getElementById('visitedCities').innerHTML += ;
+
+//         window.addEventListener('click', event => {
+//             let id = event.target.dataset.id;
+//         })
+
+// }
+
 function deleteTrip(id) {
     let dateIndex = Dates.findIndex(d => d.id === id);
     if (dateIndex > -1) {
@@ -242,17 +254,6 @@ function sendDate() {
     Objects = Years.map(year => ({ 'year': year }))
     setStorageObjects(Objects);
 }
-//}
-
-// function openDetails() {
-
-//     document.getElementById('visitedCities').innerHTML += ;
-
-//         window.addEventListener('click', event => {
-//             let id = event.target.dataset.id;
-//         })
-
-// }
 
 function sendStatistics() {
 
