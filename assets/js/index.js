@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 <div class="tripSection">${trip.date}</div>
                 <div class="tripSection">${trip.country}</div>
                 <div class="tripSection">${trip.city}</div>
-                <a href="travelCard.html"><div class="tripSection" onclick="openDetails()">>>details</div></a>
+                <button class="tripSectionButton" onclick="openDetails()" id=${trip.id}>>>details</button>
                 <button class="deleteTrip" onclick="deleteTrip('${trip.id}');">delete</button>
                 </div>`
         }
@@ -189,23 +189,31 @@ function sendJourney() {
             <div class="tripSection">${trip.date}</div>
             <div class="tripSection">${trip.country}</div>
             <div class="tripSection">${trip.city}</div>
-            <a href="travelCard.html">
-            <div class="tripSection" onclick="openDetails()">>>details</div>
-            </a>
+            
+            <button class="tripSectionButton" onclick="openDetails()" id=${trip.id}>>>details</button>
+           
             <button class="deleteTrip" onclick="deleteTrip('${trip.id}');">delete</button>
             </div>`
         setStorageTrips(Trips);
         sendDate();
+
     }
     window.location.reload();
     sendStatistics()
 }
 
-function openDetails(id) {
-    let tripIndex = Trips.findIndex(t => t.id === id);
-    if (tripIndex > -1) {
-        console.log(tripIndex);
-    }
+function openDetails() {
+
+    let travelCards = document.querySelectorAll('.tripSectionButton')
+    console.log(travelCards);
+
+    travelCards.forEach(travelCard => {
+        travelCard.addEventListener('click', function (event) {
+            console.log(event.target.id);
+        })
+    })
+
+
 }
 
 //}
