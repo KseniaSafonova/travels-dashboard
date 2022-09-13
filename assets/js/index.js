@@ -189,9 +189,7 @@ function sendJourney() {
             <div class="tripSection">${trip.date}</div>
             <div class="tripSection">${trip.country}</div>
             <div class="tripSection">${trip.city}</div>
-            
             <button class="tripSectionButton" onclick="openDetails()" id=${trip.id}>>>details</button>
-           
             <button class="deleteTrip" onclick="deleteTrip('${trip.id}');">delete</button>
             </div>`
         setStorageTrips(Trips);
@@ -202,14 +200,16 @@ function sendJourney() {
     sendStatistics()
 }
 
-function openDetails() {
 
+
+function openDetails() {
     let travelCards = document.querySelectorAll('.tripSectionButton')
     console.log(travelCards);
 
     travelCards.forEach(travelCard => {
         travelCard.addEventListener('click', function (event) {
-            console.log(event.target.id);
+            // console.log(event.target.id);
+            console.log('click')
         })
     })
 }
